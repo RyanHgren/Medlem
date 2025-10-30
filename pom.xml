@@ -5,6 +5,7 @@
   <artifactId>Medlem</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
+  <!-- dependency management -->
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -16,27 +17,26 @@
   <url>http://maven.apache.org</url>
 
   <dependencies>
-  
+  <!-- SPW för webbappar -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <dependency>
+    <!-- JPA för databashantering -->
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
     <dependency>
+    <!-- THymeleaf för html och vyhantering -->
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     <dependency>
+    <!-- h2 databas (inmemory) -->
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
       <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
     </dependencies>
 
