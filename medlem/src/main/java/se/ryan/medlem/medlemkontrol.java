@@ -14,16 +14,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class medlemkontrol {
     private List<MedlemType> medlemmar = new ArrayList<>();
     
-    @GetMapping("/medlem")
-    public String index(Model model) {
-        model.addAttribute("medlemmar", medlemmar);
+    @GetMapping("/hemsida")
+    public String hemsida(){
+        return "hemsida"; // Visar hemsida.html
+    }
+    @GetMapping("/adda")
+    public String addamedlem(Model model){
         model.addAttribute("nyMedlem", new MedlemType());
-        return "medlem/index"; // Returnerar namn på Thymeleaf-mallen
+        return "addamedlem"; // Visar addamedlem.html
+    }
+    @PostMapping("/adda")
+    public String sparaMedlem(@ModelAttribute MedlemType nyMedlem) {
+        medlemmar.add(nyMedlem);
+        return "redirect:/medlem"; // Omdirigerar till /medlem efter sparande
+    }
+    @GetMapping("/medlem")
+    public String medlem(Model model) {
+        model.addaMedlem("medlemmar", medlemmar);
+        return "medlemmar"; // Visar medlemmar.html
     }
     @PostMapping("/medlem")
-    public String addMedlem(@ModelAttribute MedlemType nyMedlem) {
-        medlemmar.add(nyMedlem);
-        return "redirect:/medlem"; 
-        // Omdirigerar tillbaka till /medlem efter tillägg
+    public String raderaMedlem(@PathVariable int index) {
+        if (index >= 0 && index < medlemmar.size()) {
+            medlemmar.remove(index);
+        }
+        return "redirect:/medlem"; // Omdirigerar tillbaka till /medlem efter radering
     }
 }
