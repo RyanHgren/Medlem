@@ -8,10 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 
-public class medlemkontrol {
+public class MedlemController {
     private List<MedlemType> medlemmar = new ArrayList<>();
     
     @GetMapping("/hemsida")
@@ -19,7 +20,7 @@ public class medlemkontrol {
         return "hemsida"; // Visar hemsida.html
     }
     @GetMapping("/adda")
-    public String addamedlem(Model model){
+    public String addaMedlem(Model model){
         model.addAttribute("nyMedlem", new MedlemType());
         return "addamedlem"; // Visar addamedlem.html
     }
@@ -30,10 +31,10 @@ public class medlemkontrol {
     }
     @GetMapping("/medlem")
     public String medlem(Model model) {
-        model.addaMedlem("medlemmar", medlemmar);
+        model.addAttribute("medlemmar", medlemmar);
         return "medlemmar"; // Visar medlemmar.html
     }
-    @PostMapping("/medlem")
+    @PostMapping("/radera/{index}")
     public String raderaMedlem(@PathVariable int index) {
         if (index >= 0 && index < medlemmar.size()) {
             medlemmar.remove(index);

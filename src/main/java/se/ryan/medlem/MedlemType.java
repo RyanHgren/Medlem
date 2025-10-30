@@ -1,4 +1,4 @@
-package se.ryanhgren.medlem;
+package se.ryan.medlem;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
