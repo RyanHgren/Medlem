@@ -56,13 +56,14 @@
             <h1> Alla medlemmar</h1>
 
             <a th:href="@{/hemsida}" class="btn back-btn"> Tillbaka</a>
-
+            <!-- visa om inga medlemmar -->
             <div th:if="${medlemmar.isEmpty}">
                 <p>Inga medlemmar tillagda än.</p>
             </div>
+            <!-- loopar genom medlemmar -->
             <div th:each="medlem, status : ${medlemmar}" class="medlem-item">
                 <span th:text="${medlem.namn}">Medlemsnamn</span>
-
+                <!-- formulär för att radera -->
                 <form th:action="@{/radera/{index}(index=${status.index})}" method="post" style="display:inline;">
                     <input type="hidden" th:name="namn" th:value="${medlem.namn}" />
                     <button type="submit" class="radera-btn" onclick="return confirm('Är du säker?');">Radera</button>
