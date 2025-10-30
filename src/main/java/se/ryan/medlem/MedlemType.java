@@ -10,7 +10,7 @@ public class MedlemType {
     public MedlemType(String namn) {
         this.namn = namn;
     }
-
+// Getter och setter
     public String getNamn() {
         return namn;
     }
