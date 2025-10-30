@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Alla medlemmar</title>
+        <style>
+            body {
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 15px;
+            }
+            .container {
+                background: beige;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+            }
+            h1 {
+                color: darkblue;
+                text-align: center;
+            }
+            .medlem-item {
+                background: #6d7c63;
+                padding: 15px;
+                margin-bottom: 5px;
+                border-radius: 5px;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+                align-items: center;
+            }
+            button, .radera-btn {
+                display: inline-block;
+                padding: 20px 30px;
+                margin: 15px;
+                background: blueviolet;
+                color: rgb(39, 27, 27);
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 20px;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+            }
+            .back-btn {
+                background: rgb(102, 44, 44);
+            }
+            .radera-btn {
+                background: rgb(65, 3, 3);
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1> Alla medlemmar</h1>
+
+            <a th:href="@{/hemsida}" class="btn back-btn"> Tillbaka</a>
+
+            <div th:if="${medlemmar.isEmpty}">
+                <p>Inga medlemmar tillagda än.</p>
+            </div>
+            <div th:each="medlem, status : ${medlemmar}" class="medlem-item">
+                <span th:text="${medlem.namn}">Medlemsnamn</span>
+
+                <form th:action="@{/radera/{index}(index=${status.index})}" method="post" style="display:inline;">
+                    <input type="hidden" th:name="namn" th:value="${medlem.namn}" />
+                    <button type="submit" class="radera-btn" onclick="return confirm('Är du säker?');">Radera</button>
+
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

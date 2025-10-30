@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Medlemlista</title>
+        <style>
+            body {
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 15px;
+            }
+            .container {
+                background: beige;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+            }
+            .btn {
+                display: inline-block;
+                padding: 20px 30px;
+                margin: 15px;
+                background: blueviolet;
+                color: rgb(39, 27, 27);
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 20px;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1> Välkommen till Medlemlistan</h1>
+            <P>Hantering av medlemmar</P>
+            <a th:href="@{/adda}" class="btn"> Lägg till medlem</a>
+            <a th:href="@{/medlem}" class="btn"> Visa medlemmar</a>
+        </div>
+</html>
