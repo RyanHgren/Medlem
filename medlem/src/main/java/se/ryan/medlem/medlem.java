@@ -1,11 +1,11 @@
-package se.RyanHgren.medlem;
+package se.ryan.medlem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Medlem {
+public class medlem {
     public static void main(String[] args) {
-        SpringApplication.run(Medlem.class, args);
+        SpringApplication.run(medlem.class, args);
     }
 }

@@ -1,6 +1,4 @@
-package se.RyanHgren.medlem;
-
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+package se.ryanhgren.medlem;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
